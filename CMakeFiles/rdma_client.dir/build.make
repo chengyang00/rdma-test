@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/sdn/yc/rdma-example
+CMAKE_SOURCE_DIR = /home/sdn/yc/rdma-test
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/sdn/yc/rdma-example
+CMAKE_BINARY_DIR = /home/sdn/yc/rdma-test
 
 # Include any dependencies generated for this target.
 include CMakeFiles/rdma_client.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/rdma_client.dir/flags.make
 
 CMakeFiles/rdma_client.dir/src/rdma_common.c.o: CMakeFiles/rdma_client.dir/flags.make
 CMakeFiles/rdma_client.dir/src/rdma_common.c.o: src/rdma_common.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sdn/yc/rdma-example/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/rdma_client.dir/src/rdma_common.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/rdma_client.dir/src/rdma_common.c.o   -c /home/sdn/yc/rdma-example/src/rdma_common.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sdn/yc/rdma-test/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/rdma_client.dir/src/rdma_common.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/rdma_client.dir/src/rdma_common.c.o   -c /home/sdn/yc/rdma-test/src/rdma_common.c
 
 CMakeFiles/rdma_client.dir/src/rdma_common.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/rdma_client.dir/src/rdma_common.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/sdn/yc/rdma-example/src/rdma_common.c > CMakeFiles/rdma_client.dir/src/rdma_common.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/sdn/yc/rdma-test/src/rdma_common.c > CMakeFiles/rdma_client.dir/src/rdma_common.c.i
 
 CMakeFiles/rdma_client.dir/src/rdma_common.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/rdma_client.dir/src/rdma_common.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/sdn/yc/rdma-example/src/rdma_common.c -o CMakeFiles/rdma_client.dir/src/rdma_common.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/sdn/yc/rdma-test/src/rdma_common.c -o CMakeFiles/rdma_client.dir/src/rdma_common.c.s
 
 CMakeFiles/rdma_client.dir/src/rdma_common.c.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/rdma_client.dir/src/rdma_common.c.o.provides.build: CMakeFiles/rdma_c
 
 CMakeFiles/rdma_client.dir/src/rdma_client.c.o: CMakeFiles/rdma_client.dir/flags.make
 CMakeFiles/rdma_client.dir/src/rdma_client.c.o: src/rdma_client.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sdn/yc/rdma-example/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/rdma_client.dir/src/rdma_client.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/rdma_client.dir/src/rdma_client.c.o   -c /home/sdn/yc/rdma-example/src/rdma_client.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sdn/yc/rdma-test/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/rdma_client.dir/src/rdma_client.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/rdma_client.dir/src/rdma_client.c.o   -c /home/sdn/yc/rdma-test/src/rdma_client.c
 
 CMakeFiles/rdma_client.dir/src/rdma_client.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/rdma_client.dir/src/rdma_client.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/sdn/yc/rdma-example/src/rdma_client.c > CMakeFiles/rdma_client.dir/src/rdma_client.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/sdn/yc/rdma-test/src/rdma_client.c > CMakeFiles/rdma_client.dir/src/rdma_client.c.i
 
 CMakeFiles/rdma_client.dir/src/rdma_client.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/rdma_client.dir/src/rdma_client.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/sdn/yc/rdma-example/src/rdma_client.c -o CMakeFiles/rdma_client.dir/src/rdma_client.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/sdn/yc/rdma-test/src/rdma_client.c -o CMakeFiles/rdma_client.dir/src/rdma_client.c.s
 
 CMakeFiles/rdma_client.dir/src/rdma_client.c.o.requires:
 
@@ -119,7 +119,7 @@ bin/rdma_client: CMakeFiles/rdma_client.dir/build.make
 bin/rdma_client: /usr/lib/x86_64-linux-gnu/libibverbs.so
 bin/rdma_client: /usr/lib/x86_64-linux-gnu/librdmacm.so
 bin/rdma_client: CMakeFiles/rdma_client.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/sdn/yc/rdma-example/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable bin/rdma_client"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/sdn/yc/rdma-test/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable bin/rdma_client"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/rdma_client.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -137,6 +137,6 @@ CMakeFiles/rdma_client.dir/clean:
 .PHONY : CMakeFiles/rdma_client.dir/clean
 
 CMakeFiles/rdma_client.dir/depend:
-	cd /home/sdn/yc/rdma-example && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/sdn/yc/rdma-example /home/sdn/yc/rdma-example /home/sdn/yc/rdma-example /home/sdn/yc/rdma-example /home/sdn/yc/rdma-example/CMakeFiles/rdma_client.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/sdn/yc/rdma-test && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/sdn/yc/rdma-test /home/sdn/yc/rdma-test /home/sdn/yc/rdma-test /home/sdn/yc/rdma-test /home/sdn/yc/rdma-test/CMakeFiles/rdma_client.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/rdma_client.dir/depend
 

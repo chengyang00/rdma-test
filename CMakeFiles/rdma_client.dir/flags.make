@@ -6,5 +6,5 @@ C_FLAGS = -O3 -DNDEBUG
 
 C_DEFINES = 
 
-C_INCLUDES = -I/home/sdn/yc/rdma-example/src -I/home/atr/local/include 
+C_INCLUDES = -I/home/sdn/yc/rdma-test/src -I/home/atr/local/include 
 

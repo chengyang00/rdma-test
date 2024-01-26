@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/sdn/yc/rdma-example/src/rdma_common.c
+/home/sdn/yc/rdma-test/src/rdma_common.c
 rdma_common.h
-/home/sdn/yc/rdma-example/src/rdma_common.h
+/home/sdn/yc/rdma-test/src/rdma_common.h
 
-/home/sdn/yc/rdma-example/src/rdma_common.h
+/home/sdn/yc/rdma-test/src/rdma_common.h
 stdio.h
 -
 stdlib.h
@@ -38,7 +38,7 @@ rdma/rdma_cma.h
 infiniband/verbs.h
 -
 
-/home/sdn/yc/rdma-example/src/rdma_server.c
+/home/sdn/yc/rdma-test/src/rdma_server.c
 rdma_common.h
-/home/sdn/yc/rdma-example/src/rdma_common.h
+/home/sdn/yc/rdma-test/src/rdma_common.h
 

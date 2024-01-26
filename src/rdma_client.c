@@ -398,7 +398,6 @@ static int client_remote_memory_ops()
 	/* at this point we are expecting 1 work completion for the write */
 	ret = process_work_completion_events(io_completion_channel,
 										 &wc, 1);
-	print_time("time");
 	if (ret != 1)
 	{
 		rdma_error("We failed to get 1 work completions , ret = %d \n",
@@ -432,7 +431,6 @@ static int client_remote_memory_ops()
 	/* at this point we are expecting 1 work completion for the read */
 	ret = process_work_completion_events(io_completion_channel,
 										 &wc, 1);
-	print_time("time");
 	if (ret != 1)
 	{
 		rdma_error("We failed to get 1 work completions , ret = %d \n",
@@ -473,7 +471,6 @@ static int send_op()
 	/* finish send operation */
 	struct ibv_wc wc;
 	ret = process_work_completion_events(io_completion_channel, &wc, 1);
-	print_time("time");
 	if (ret != 1)
 	{
 		rdma_error("Failed to send, ret = %d \n", ret);
@@ -559,7 +556,7 @@ static int client_disconnect_and_clean()
 void usage()
 {
 	printf("Usage:\n");
-	printf("rdma_client: [-a <server_addr>] [-p <server_port>] [-f <file name>] [-t <tos>]\n");
+	printf("rdma_client: [-a <server_addr>] [-p <server_port>] [-t <tos>]\n");
 	printf("(default IP is 127.0.0.1 and port is %d)\n", DEFAULT_RDMA_PORT);
 	exit(1);
 }

@@ -6,15 +6,15 @@
 
 #IncludeRegexTransform: 
 
-/home/sdn/yc/rdma-example/src/rdma_client.c
+/home/sdn/yc/rdma-test/src/rdma_client.c
 rdma_common.h
-/home/sdn/yc/rdma-example/src/rdma_common.h
+/home/sdn/yc/rdma-test/src/rdma_common.h
 
-/home/sdn/yc/rdma-example/src/rdma_common.c
+/home/sdn/yc/rdma-test/src/rdma_common.c
 rdma_common.h
-/home/sdn/yc/rdma-example/src/rdma_common.h
+/home/sdn/yc/rdma-test/src/rdma_common.h
 
-/home/sdn/yc/rdma-example/src/rdma_common.h
+/home/sdn/yc/rdma-test/src/rdma_common.h
 stdio.h
 -
 stdlib.h

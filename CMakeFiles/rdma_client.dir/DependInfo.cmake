@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/sdn/yc/rdma-example/src/rdma_client.c" "/home/sdn/yc/rdma-example/CMakeFiles/rdma_client.dir/src/rdma_client.c.o"
-  "/home/sdn/yc/rdma-example/src/rdma_common.c" "/home/sdn/yc/rdma-example/CMakeFiles/rdma_client.dir/src/rdma_common.c.o"
+  "/home/sdn/yc/rdma-test/src/rdma_client.c" "/home/sdn/yc/rdma-test/CMakeFiles/rdma_client.dir/src/rdma_client.c.o"
+  "/home/sdn/yc/rdma-test/src/rdma_common.c" "/home/sdn/yc/rdma-test/CMakeFiles/rdma_client.dir/src/rdma_common.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
