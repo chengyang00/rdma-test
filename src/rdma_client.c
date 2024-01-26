@@ -17,7 +17,7 @@ static struct ibv_qp_init_attr qp_init_attr;
 static struct ibv_qp *client_qp;
 /* These are memory buffers related resources */
 static struct ibv_mr *client_metadata_mr = NULL,
-					 *client_src_mr = NULL,
+					 *buffer_mr = NULL,
 					 *client_dst_mr = NULL,
 					 *server_metadata_mr = NULL;
 static struct rdma_buffer_attr client_metadata_attr, server_metadata_attr;
@@ -289,21 +289,21 @@ static int client_xchange_metadata_with_server()
 {
 	struct ibv_wc wc[2];
 	int ret = -1;
-	client_src_mr = rdma_buffer_register(pd,
+	buffer_mr = rdma_buffer_register(pd,
 										 buffer,
 										 size,
 										 (IBV_ACCESS_LOCAL_WRITE |
 										  IBV_ACCESS_REMOTE_READ |
 										  IBV_ACCESS_REMOTE_WRITE));
-	if (!client_src_mr)
+	if (!buffer_mr)
 	{
 		rdma_error("Failed to register the first buffer, ret = %d \n", ret);
 		return ret;
 	}
 	/* we prepare metadata for the first buffer */
-	client_metadata_attr.address = (uint64_t)client_src_mr->addr;
-	client_metadata_attr.length = client_src_mr->length;
-	client_metadata_attr.stag.local_stag = client_src_mr->lkey;
+	client_metadata_attr.address = (uint64_t)buffer_mr->addr;
+	client_metadata_attr.length = buffer_mr->length;
+	client_metadata_attr.stag.local_stag = buffer_mr->lkey;
 	/* now we register the metadata memory */
 	client_metadata_mr = rdma_buffer_register(pd,
 											  &client_metadata_attr,
@@ -373,9 +373,9 @@ static int client_remote_memory_ops()
 	/* Step 1: is to copy the local buffer into the remote buffer. We will
 	 * reuse the previous variables.
 	 * now we fill up SGE */
-	client_send_sge.addr = (uint64_t)client_src_mr->addr;
-	client_send_sge.length = (uint32_t)client_src_mr->length;
-	client_send_sge.lkey = client_src_mr->lkey;
+	client_send_sge.addr = (uint64_t)buffer_mr->addr;
+	client_send_sge.length = (uint32_t)buffer_mr->length;
+	client_send_sge.lkey = buffer_mr->lkey;
 	/* now we link to the send work request */
 	bzero(&client_send_wr, sizeof(client_send_wr));
 	client_send_wr.sg_list = &client_send_sge;
@@ -452,9 +452,9 @@ static int send_op()
 		printf("Failed to write sync to client.\n");
 		return ret;
 	}
-	client_send_sge.addr = (uint64_t)client_src_mr->addr;
-	client_send_sge.length = (uint32_t)client_src_mr->length;
-	client_send_sge.lkey = client_src_mr->lkey;
+	client_send_sge.addr = (uint64_t)buffer_mr->addr;
+	client_send_sge.length = (uint32_t)buffer_mr->length;
+	client_send_sge.lkey = buffer_mr->lkey;
 	bzero(&client_send_wr, sizeof(client_send_wr));
 	client_send_wr.sg_list = &client_send_sge;
 	client_send_wr.num_sge = 1;
@@ -535,8 +535,8 @@ static int client_disconnect_and_clean()
 	/* Destroy memory buffers */
 	rdma_buffer_deregister(server_metadata_mr);
 	rdma_buffer_deregister(client_metadata_mr);
-	rdma_buffer_deregister(client_src_mr);
-	rdma_buffer_deregister(client_dst_mr);
+	rdma_buffer_deregister(buffer_mr);
+	// rdma_buffer_deregister(client_dst_mr);
 	/* We free the buffers */
 	free(buffer);
 	/* Destroy protection domain */
