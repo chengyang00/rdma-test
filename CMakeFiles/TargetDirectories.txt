@@ -1,0 +1,4 @@
+/home/sdn/yc/rdma-example/CMakeFiles/edit_cache.dir
+/home/sdn/yc/rdma-example/CMakeFiles/rdma_server.dir
+/home/sdn/yc/rdma-example/CMakeFiles/rebuild_cache.dir
+/home/sdn/yc/rdma-example/CMakeFiles/rdma_client.dir
