@@ -1,4 +1,4 @@
-/home/sdn/yc/rdma-test/CMakeFiles/rebuild_cache.dir
 /home/sdn/yc/rdma-test/CMakeFiles/edit_cache.dir
-/home/sdn/yc/rdma-test/CMakeFiles/rdma_client.dir
 /home/sdn/yc/rdma-test/CMakeFiles/rdma_server.dir
+/home/sdn/yc/rdma-test/CMakeFiles/rebuild_cache.dir
+/home/sdn/yc/rdma-test/CMakeFiles/rdma_client.dir

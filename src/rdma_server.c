@@ -455,12 +455,7 @@ static int recv_op()
 		return ret;
 	}
 	/* sync with client */
-	int n = sock_read(peer_sockfd, sock_buf, sizeof(SOCK_SYNC_MSG));
-	if (n != sizeof(SOCK_SYNC_MSG))
-	{
-		printf("Failed to receive sync from client.\n");
-		return ret;
-	}
+	sock_write(peer_sockfd, sock_buf, sizeof(SOCK_SYNC_MSG));
 	/* wait for the client to send the file */
 	struct ibv_wc wc;
 	ret = process_work_completion_events(io_completion_channel, &wc, 1);

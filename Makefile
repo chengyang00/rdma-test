@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /home/sdn/yc/rdma-test
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -77,6 +66,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -111,19 +111,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named rdma_client
-
-# Build rule for target.
-rdma_client: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 rdma_client
-.PHONY : rdma_client
-
-# fast build rule for target.
-rdma_client/fast:
-	$(MAKE) -f CMakeFiles/rdma_client.dir/build.make CMakeFiles/rdma_client.dir/build
-.PHONY : rdma_client/fast
-
-#=============================================================================
 # Target rules for targets named rdma_server
 
 # Build rule for target.
@@ -135,6 +122,19 @@ rdma_server: cmake_check_build_system
 rdma_server/fast:
 	$(MAKE) -f CMakeFiles/rdma_server.dir/build.make CMakeFiles/rdma_server.dir/build
 .PHONY : rdma_server/fast
+
+#=============================================================================
+# Target rules for targets named rdma_client
+
+# Build rule for target.
+rdma_client: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rdma_client
+.PHONY : rdma_client
+
+# fast build rule for target.
+rdma_client/fast:
+	$(MAKE) -f CMakeFiles/rdma_client.dir/build.make CMakeFiles/rdma_client.dir/build
+.PHONY : rdma_client/fast
 
 src/rdma_client.o: src/rdma_client.c.o
 
@@ -169,8 +169,8 @@ src/rdma_common.o: src/rdma_common.c.o
 
 # target to build an object file
 src/rdma_common.c.o:
-	$(MAKE) -f CMakeFiles/rdma_client.dir/build.make CMakeFiles/rdma_client.dir/src/rdma_common.c.o
 	$(MAKE) -f CMakeFiles/rdma_server.dir/build.make CMakeFiles/rdma_server.dir/src/rdma_common.c.o
+	$(MAKE) -f CMakeFiles/rdma_client.dir/build.make CMakeFiles/rdma_client.dir/src/rdma_common.c.o
 .PHONY : src/rdma_common.c.o
 
 src/rdma_common.i: src/rdma_common.c.i
@@ -179,8 +179,8 @@ src/rdma_common.i: src/rdma_common.c.i
 
 # target to preprocess a source file
 src/rdma_common.c.i:
-	$(MAKE) -f CMakeFiles/rdma_client.dir/build.make CMakeFiles/rdma_client.dir/src/rdma_common.c.i
 	$(MAKE) -f CMakeFiles/rdma_server.dir/build.make CMakeFiles/rdma_server.dir/src/rdma_common.c.i
+	$(MAKE) -f CMakeFiles/rdma_client.dir/build.make CMakeFiles/rdma_client.dir/src/rdma_common.c.i
 .PHONY : src/rdma_common.c.i
 
 src/rdma_common.s: src/rdma_common.c.s
@@ -189,8 +189,8 @@ src/rdma_common.s: src/rdma_common.c.s
 
 # target to generate assembly for a file
 src/rdma_common.c.s:
-	$(MAKE) -f CMakeFiles/rdma_client.dir/build.make CMakeFiles/rdma_client.dir/src/rdma_common.c.s
 	$(MAKE) -f CMakeFiles/rdma_server.dir/build.make CMakeFiles/rdma_server.dir/src/rdma_common.c.s
+	$(MAKE) -f CMakeFiles/rdma_client.dir/build.make CMakeFiles/rdma_client.dir/src/rdma_common.c.s
 .PHONY : src/rdma_common.c.s
 
 src/rdma_server.o: src/rdma_server.c.o
@@ -226,10 +226,10 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... rdma_client"
 	@echo "... rdma_server"
+	@echo "... rebuild_cache"
+	@echo "... rdma_client"
 	@echo "... src/rdma_client.o"
 	@echo "... src/rdma_client.i"
 	@echo "... src/rdma_client.s"
