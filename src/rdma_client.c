@@ -446,12 +446,9 @@ static int send_op()
 {
 	int ret = -1;
 	/* sync with server */
-	int n = sock_write(peer_sockfd, sock_buf, sizeof(SOCK_SYNC_MSG));
-	if (n != sizeof(SOCK_SYNC_MSG))
-	{
-		printf("Failed to write sync to client.\n");
-		return ret;
-	}
+	sock_read(peer_sockfd, sock_buf, sizeof(SOCK_SYNC_MSG));
+	sock_write(peer_sockfd, sock_buf, sizeof(SOCK_SYNC_MSG));
+	
 	client_send_sge.addr = (uint64_t)buffer_mr->addr;
 	client_send_sge.length = (uint32_t)buffer_mr->length;
 	client_send_sge.lkey = buffer_mr->lkey;

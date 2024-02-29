@@ -430,6 +430,9 @@ static int send_server_metadata_to_client()
 static int recv_op()
 {
 	int ret = -1;
+	/* sync with client */
+	sock_write(peer_sockfd, sock_buf, sizeof(SOCK_SYNC_MSG));
+	sock_read(peer_sockfd, sock_buf, sizeof(SOCK_SYNC_MSG));
 	/* register a memory region to receive a file */
 	server_recv_mr = rdma_buffer_register(pd,
 										  buffer,
@@ -454,8 +457,6 @@ static int recv_op()
 		rdma_error("Failed to post the receive request, errno: %d \n", ret);
 		return ret;
 	}
-	/* sync with client */
-	sock_write(peer_sockfd, sock_buf, sizeof(SOCK_SYNC_MSG));
 	/* wait for the client to send the file */
 	struct ibv_wc wc;
 	ret = process_work_completion_events(io_completion_channel, &wc, 1);
