@@ -448,7 +448,7 @@ static int send_op()
 	/* sync with server */
 	sock_read(peer_sockfd, sock_buf, sizeof(SOCK_SYNC_MSG));
 	sock_write(peer_sockfd, sock_buf, sizeof(SOCK_SYNC_MSG));
-	
+	/* post send */
 	client_send_sge.addr = (uint64_t)buffer_mr->addr;
 	client_send_sge.length = (uint32_t)buffer_mr->length;
 	client_send_sge.lkey = buffer_mr->lkey;
