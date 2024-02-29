@@ -525,11 +525,13 @@ static int disconnect_and_cleanup()
 	free(buffer);
 	/* Destroy protection domain */
 	ret = ibv_dealloc_pd(pd);
+	/* ignore this issue
 	if (ret)
 	{
 		rdma_error("Failed to destroy client protection domain cleanly, %d \n", -errno);
 		// we continue anyways;
 	}
+	*/
 	/* Destroy rdma server id */
 	ret = rdma_destroy_id(cm_server_id);
 	if (ret)
