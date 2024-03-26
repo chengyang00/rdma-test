@@ -638,15 +638,6 @@ int main(int argc, char **argv)
 		rdma_error("Failed to send server metadata to the client, ret = %d \n", ret);
 		return ret;
 	}
-	for (int i = 0; i < iters; i++)
-	{
-		ret = recv_op();
-		if (ret)
-		{
-			rdma_error("Failed to receive file from the client, ret = %d \n", ret);
-			return ret;
-		}
-	}
 	ret = disconnect_and_cleanup();
 	if (ret)
 	{
